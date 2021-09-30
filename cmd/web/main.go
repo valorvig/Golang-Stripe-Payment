@@ -17,6 +17,8 @@ import (
 const version = "1.0.0"
 const cssVersion = "1" // when we imcrememnt the number, force update
 
+var session *scs.SessionManager
+
 type config struct {
 	port int
 	env  string
@@ -37,6 +39,7 @@ type application struct {
 	templateCache map[string]*template.Template
 	version       string
 	DB            models.DBModel
+	Session       *scs.SessionManager
 }
 
 func (app *application) serve() error {
